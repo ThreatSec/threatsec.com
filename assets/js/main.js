@@ -74,7 +74,7 @@
 			//form post 
 
 			$("#contact-form").submit(function(e){
-				e.preventDefault();
+				//e.preventDefault();
 				
 				var name = $("#contact-name").val()
 				var email = $("#contact-email").val()
