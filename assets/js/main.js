@@ -91,6 +91,9 @@
 					data: formData,					
 					success : function(result){						
 						if (result.msg === "ok"){
+							$("#contact-name").val("");
+							$("#contact-email").val("");
+							$("#contact-message").val("");
 							alert("Thank you, your email has been sent");
 						}
 						else {
