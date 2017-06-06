@@ -111,7 +111,7 @@ $("a[href='#contact']").bind('touchstart touchend', function(e) {
 						var errors =[]
 						var result = JSON.parse(xhr.responseText)
 						console.log(result)									
-						alert("Error: unable to send mail.\n\n* "+result.msg.replace(/,./g, "\n* "))
+						alert("Error: we were unable to send your message for the following reason(s):\n\n* "+result.msg.replace(/,./g, "\n* "))
 					}
 				})
 			});
