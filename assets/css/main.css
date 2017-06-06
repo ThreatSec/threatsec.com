@@ -1375,9 +1375,16 @@
 			input[type="submit"].style1:hover,
 			input[type="reset"].style1:hover,
 			button.style1:hover,
-			.button.style1:hover {
+			.button.style1:hover,
+			 input[type="button"].style1:hover_effect,
+                        input[type="submit"].style1:hover_effect,
+                        input[type="reset"].style1:hover_effect,
+                        button.style1:hover_effect,
+                        .button.style1:hover_effect {
 				background-color: #f98780;
+
 			}
+
 
 			input[type="button"].style1:active,
 			input[type="submit"].style1:active,

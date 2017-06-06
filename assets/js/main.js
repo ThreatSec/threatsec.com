@@ -47,13 +47,6 @@
 				);
 			});
 
-		// Dropdowns.
-			$('#nav > ul').dropotron({
-				mode: 'fade',
-				noOpenerFade: true,
-				alignment: 'center',
-				detach: false
-			});
 
 		// Off-Canvas Navigation.
 
@@ -69,6 +62,20 @@
 			//insert copyright year
 			var year = (new Date().getFullYear());
 			$('#copyrightYear').text(year);
+
+			//scroll to form
+/*
+$("a[href='#contact']").click(function(event) {
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+  return false;
+});
+
+*/
+$("a[href='#contact']").bind('touchstart touchend', function(e) {
+//        e.preventDefault();
+
+        $(this).toggleClass('hover_effect');
+    });
 
 
 			//form post 
@@ -111,30 +118,6 @@
 			});
 
 
-			// Navigation Panel.
-				$(
-					'<div id="navPanel">' +
-						'<nav>' +
-							$('#nav').navList() +
-						'</nav>' +
-					'</div>'
-				)
-					.appendTo($body)
-					.panel({
-						delay: 500,
-						hideOnClick: true,
-						hideOnSwipe: true,
-						resetScroll: true,
-						resetForms: true,
-						side: 'left',
-						target: $body,
-						visibleClass: 'navPanel-visible'
-					});
-
-			// Fix: Remove navPanel transitions on WP<10 (poor/buggy performance).
-				if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
-					$('#titleBar, #navPanel, #page-wrapper')
-						.css('transition', 'none');
 
 	});
 
