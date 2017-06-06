@@ -80,8 +80,7 @@ $("a[href='#contact']").bind('touchstart touchend', function(e) {
 
 			//form post 
 
-//			$("#contact-form").submit(function(e){
-                        $("#contact-form").on('submit', function(e){
+			$("#contact-form").submit(function(e){
 				e.preventDefault();
 				
 				var name = $("#contact-name").val()
