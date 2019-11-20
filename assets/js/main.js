@@ -86,7 +86,7 @@ $("a[href='#contact']").bind('touchstart touchend', function(e) {
 				var name = $("#contact-name").val()
 				var email = $("#contact-email").val()
 				var message = $("#contact-message").val()
-				var recaptchaResponse = ("#g-recaptcha-response").val()
+				var recaptchaResponse = $("#g-recaptcha-response").val()
 				
 				var formData = $("#contact-form").serialize()
 				
