@@ -85,7 +85,8 @@ $("a[href='#contact']").bind('touchstart touchend', function(e) {
 				
 				var name = $("#contact-name").val()
 				var email = $("#contact-email").val()
-				var message = $("#contact-message").val()		
+				var message = $("#contact-message").val()
+				var g-recaptcha-response = ("#g-recaptcha-response").val()
 				
 				var formData = $("#contact-form").serialize()
 				
@@ -100,7 +101,7 @@ $("a[href='#contact']").bind('touchstart touchend', function(e) {
 						if (result.msg === "ok"){
 							$("#contact-name").val("");
 							$("#contact-email").val("");
-							$("#contact-message").val("");
+							$("#contact-message").val("");							
 							alert("Thank you, your email has been sent");
 						}
 						else {
