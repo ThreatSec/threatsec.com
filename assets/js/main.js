@@ -80,42 +80,11 @@ $("a[href='#contact']").bind('touchstart touchend', function(e) {
 
 			//form post 
 
-			$("#contact-form").submit(function(e){
-				e.preventDefault();
-				
-				var name = $("#contact-name").val()
-				var email = $("#contact-email").val()
-				var message = $("#contact-message").val()
-				var recaptchaResponse = $("#g-recaptcha-response").val()
-				
-				var formData = $("#contact-form").serialize()
-				
-				
-				// send ajax
-				$.ajax({
-					url: 'https://script.google.com/macros/s/AKfycbwpfrD4ocMc8B50z6Kk3NFuHzTaNG1ubQokIkQXKkAK4s4xpp94AHcUgdVxektVj-K5Wg/exec', // url where to submit the request
-					type : "POST", // type of action POST || GET
-					dataType : 'json', // data type					
-					data: formData,					
-					success : function(result){						
-						if (result.msg === "ok"){
-							$("#contact-name").val("");
-							$("#contact-email").val("");
-							$("#contact-message").val("");							
-							alert("Thank you, your email has been sent");
-						}
-						else {
-							alert("Error, unable to sent an email.  Please try again later");
-						}
-					},
-					error : function(xhr,status, error){
-						var errors =[]
-						var result = JSON.parse(xhr.responseText)
-						console.log(result)									
-						alert("Error: we were unable to send your message for the following reason(s):\n\n* "+result.msg.replace(/,./g, "\n* "))
-					}
-				})
-			});
+			// allow normal form POST (no preventDefault) and clear fields on successful page load
+$("#contact-form").submit(function(){
+  // do nothing to prevent default submit
+  // optional: let the Apps Script redirect back; fields will already be cleared by server redirect
+});
 
 
 
