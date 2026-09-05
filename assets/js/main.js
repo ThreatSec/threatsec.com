@@ -80,22 +80,31 @@ $("a[href='#contact']").bind('touchstart touchend', function(e) {
 
 			//form post 
 
-			// allow normal form POST (no preventDefault) and clear fields on successful page load
-$("#contact-form").submit(function(){
-  // do nothing to prevent default submit
-  // optional: let the Apps Script redirect back; fields will already be cleared by server redirect
-});
-
-document.getElementById('contact-form').addEventListener('submit', function(e){
-  try {
-    if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse().length === 0) {
-      e.preventDefault();
-      alert('Please complete the reCAPTCHA and try again.');
-      return false;
-    }
-  } catch (err) { /* ignore if grecaptcha not present */ }
-});
-
+				// send ajax
+				$.ajax({
+					url: 'https://contact.threatsec.com/send', // url where to submit the request
+					type : "POST", // type of action POST || GET
+					dataType : 'json', // data type					
+					data: formData,					
+					success : function(result){						
+						if (result.msg === "ok"){
+							$("#contact-name").val("");
+							$("#contact-email").val("");
+							$("#contact-message").val("");							
+							alert("Thank you, your email has been sent");
+						}
+						else {
+							alert("Error, unable to sent an email.  Please try again later");
+						}
+					},
+					error : function(xhr,status, error){
+						var errors =[]
+						var result = JSON.parse(xhr.responseText)
+						console.log(result)									
+						alert("Error: we were unable to send your message for the following reason(s):\n\n* "+result.msg.replace(/,./g, "\n* "))
+					}
+				})
+			});
 
 	});
 
