@@ -86,6 +86,15 @@ $("#contact-form").submit(function(){
   // optional: let the Apps Script redirect back; fields will already be cleared by server redirect
 });
 
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  try {
+    if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse().length === 0) {
+      e.preventDefault();
+      alert('Please complete the reCAPTCHA and try again.');
+      return false;
+    }
+  } catch (err) { /* ignore if grecaptcha not present */ }
+});
 
 
 	});
