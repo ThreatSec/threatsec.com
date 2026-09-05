@@ -93,7 +93,7 @@ $("a[href='#contact']").bind('touchstart touchend', function(e) {
 				
 				// send ajax
 				$.ajax({
-					url: 'https://contact.threatsec.com/send', // url where to submit the request
+					url: 'https://script.google.com/macros/s/AKfycbwpfrD4ocMc8B50z6Kk3NFuHzTaNG1ubQokIkQXKkAK4s4xpp94AHcUgdVxektVj-K5Wg/exec', // url where to submit the request
 					type : "POST", // type of action POST || GET
 					dataType : 'json', // data type					
 					data: formData,					
