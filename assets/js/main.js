@@ -98,12 +98,13 @@ $("a[href='#contact']").bind('touchstart touchend', function(e) {
 					dataType : 'json', // data type					
 					data: formData,					
 					success : function(result){						
-						if (result.msg === "ok"){
+						if (result.msg === true){
 							$("#contact-name").val("");
 							$("#contact-email").val("");
 							$("#contact-message").val("");							
 							alert("Thank you, your email has been sent");
 						}
+					
 						else {
 							alert("Error, unable to sent an email.  Please try again later");
 						}
