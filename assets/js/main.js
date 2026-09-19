@@ -93,7 +93,7 @@ $("a[href='#contact']").bind('touchstart touchend', function(e) {
 				
 				// send ajax
 				$.ajax({
-					url: 'https://contact.threatsec.com/send', // url where to submit the request
+					url: 'https://nzjji4ps76inyjfmc5ywrvxdpa0mtzof.lambda-url.eu-west-2.on.aws/', // url where to submit the request
 					type : "POST", // type of action POST || GET
 					dataType : 'json', // data type					
 					data: formData,					
