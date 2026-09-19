@@ -97,18 +97,18 @@ $("a[href='#contact']").bind('touchstart touchend', function(e) {
 					type : "POST", // type of action POST || GET
 					dataType : 'json', // data type					
 					data: formData,					
-					success : function(result){						
-						if (result.msg === true){
-							$("#contact-name").val("");
-							$("#contact-email").val("");
-							$("#contact-message").val("");							
-							alert("Thank you, your email has been sent");
-						}
-					
-						else {
-							alert("Error, unable to sent an email.  Please try again later");
-						}
+					success: function(result){
+					  // Accept either the boolean ok or the msg string
+					  if (result && (result.ok === true || result.msg === 'sent')) {
+					    $("#contact-name, #contact-email, #contact-message").val("");
+					    if (typeof grecaptcha !== 'undefined' && grecaptcha.reset) grecaptcha.reset();
+					    alert("Thank you, your email has been sent");
+					  } else {
+					    alert("Error, unable to send an email. Please try again later");
+					  }
 					},
+										
+				
 					error : function(xhr,status, error){
 						var errors =[]
 						var result = JSON.parse(xhr.responseText)
